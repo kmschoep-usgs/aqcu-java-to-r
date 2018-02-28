@@ -19,3 +19,7 @@ management:
 spring:
   profiles:
     active: default, swagger
+  application:
+    name: aqcu-java-to-r
+  jmx:
+    default-domain: aqcu-java-to-r
