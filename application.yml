@@ -1,0 +1,3 @@
+keystoreLocation: /path/to/.keystore
+keystorePassword: changeit
+keystoreSSLKey: tomcat
