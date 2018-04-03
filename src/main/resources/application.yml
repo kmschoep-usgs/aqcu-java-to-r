@@ -1,5 +1,5 @@
 server:
-  port: 8443
+  port: ${serverPort:443}
   use-forward-headers: true
   ssl:
     key-store: ${keystoreLocation}
