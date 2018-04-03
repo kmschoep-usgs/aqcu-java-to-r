@@ -186,7 +186,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/USGS-CIDA/java-to-r.git</connection>
-        <developerConnection>scm:git:https://${env.GITHUB_USER}:${env.GITHUB_PASS}@github.com/USGS-CIDA/aqcu-framework.git</developerConnection>
+        <developerConnection>scm:git:https://${env.GITHUB_USER}:${env.GITHUB_PASS}@github.com/USGS-CIDA/java-to-r.git</developerConnection>
         <url>https://github.com/USGS-CIDA/java-to-r</url>
         <tag>HEAD</tag>
     </scm>
