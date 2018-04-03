@@ -3,7 +3,7 @@ Aquarius Customization - Java to RServe Bridge
 
 This service sits between the AQCU Report Microservices and Repgen.
 
-It is built as a war to be deployed into a Tomcat container.
+It is built as a jar to be deployed into a Tomcat container.
 
 Configured functionality includes:
 
