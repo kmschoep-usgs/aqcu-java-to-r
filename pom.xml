@@ -7,6 +7,7 @@
 
     <properties>
         <cida.maven.url>https://internal.cida.usgs.gov/maven/content/repositories</cida.maven.url>
+		<wma.artifactory.url>https://cida.usgs.gov/artifactory</wma.artifactory.url>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -15,19 +16,32 @@
         <springfox.version>2.8.0</springfox.version>
     </properties>
 
+	<distributionManagement>
+        <repository>
+            <id>release</id>
+            <name>cidasdpdasartip.cr.usgs.gov-releases</name>
+            <url>${wma.artifactory.url}/aqcu-maven-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>cidasdpdasartip.cr.usgs.gov-snapshots</name>
+            <url>${wma.artifactory.url}/aqcu-maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+	
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.10.RELEASE</version>
     </parent>
 
-    <repositories>
+    <!--repositories>
         <repository>
             <id>cida-public</id>
             <name>CIDA Public Nexus</name>
             <url>${cida.maven.url}/cida-public-releases/</url>
         </repository>
-    </repositories>
+    </repositories-->
 
     <dependencyManagement>
         <dependencies>
@@ -172,7 +186,7 @@
 
     <scm>
         <connection>scm:git:https://github.com/USGS-CIDA/java-to-r.git</connection>
-        <developerConnection>scm:git:https://github.com/USGS-CIDA/java-to-r.git</developerConnection>
+        <developerConnection>scm:git:https://${env.GITHUB_USER}:${env.GITHUB_PASS}@github.com/USGS-CIDA/aqcu-framework.git</developerConnection>
         <url>https://github.com/USGS-CIDA/java-to-r</url>
         <tag>HEAD</tag>
     </scm>
