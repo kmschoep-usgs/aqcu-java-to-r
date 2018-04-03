@@ -1,13 +1,13 @@
 # aqcu-java-to-r
 Aquarius Customization - Java to RServe Bridge
 
-This service sits between the AQCU Report Microservices and RegGen.
+This service sits between the AQCU Report Microservices and Repgen.
 
-It is built as a war to be deployed into a Tomcat container.
+It is built as a jar to be deployed into a Tomcat container.
 
 Configured functionality includes:
 
-- **Swagger Api Documentation** Located at https://localhost:8443/aqcu-gateway/swagger-iu.html
+- **Swagger Api Documentation** Located at https://localhost:8443/aqcu-java-to-r/swagger-ui.html
 
 ## Running the Application
 
