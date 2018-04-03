@@ -7,7 +7,7 @@ It is built as a war to be deployed into a Tomcat container.
 
 Configured functionality includes:
 
-- **Swagger Api Documentation** Located at https://localhost:8443/aqcu-gateway/swagger-ui.html
+- **Swagger Api Documentation** Located at https://localhost:8443/aqcu-java-to-r/swagger-ui.html
 
 ## Running the Application
 
