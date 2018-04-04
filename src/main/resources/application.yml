@@ -7,6 +7,17 @@ server:
     key-password: ${keystorePassword}
     key-alias: ${keystoreSSLKey:tomcat}
 
+rserve:
+  host: ${rserveHost}
+  port: ${rservePort:6311}
+  user: ${rserveUser:}
+  password: ${rservePassword:}
+  timeout:
+    ms: ${rserveTimeout:120000}
+  retry:
+    interval:
+      ms: ${rserveRetryInterval:5000}
+
 security:
   require-ssl: true
   basic:

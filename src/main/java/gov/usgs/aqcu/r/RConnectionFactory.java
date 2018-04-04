@@ -10,15 +10,15 @@ public class RConnectionFactory {
 
 	@Value("${rserve.host}")
 	private String host;
-	@Value("${rserve.port:6311}")
+	@Value("${rserve.port}")
 	private int port;
-	@Value("${rserve.user:}")
+	@Value("${rserve.user}")
 	private String user;
-	@Value("${rserve.timeout.ms:120000}")
+	@Value("${rserve.timeout.ms}")
 	private long timeout;
-	@Value("${rserve.retry.interval.ms:5000}")
+	@Value("${rserve.retry.interval.ms}")
 	private long retryInterval;
-	@Value("${rserve.pass:}")
+	@Value("${rserve.password}")
 	private String pass;
 
 	public RConnection getConnection() throws RserveException, InterruptedException {
