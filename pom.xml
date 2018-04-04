@@ -35,14 +35,6 @@
         <version>1.5.10.RELEASE</version>
     </parent>
 
-    <!--repositories>
-        <repository>
-            <id>cida-public</id>
-            <name>CIDA Public Nexus</name>
-            <url>${cida.maven.url}/cida-public-releases/</url>
-        </repository>
-    </repositories-->
-
     <dependencyManagement>
         <dependencies>
             <dependency>
