@@ -1,3 +1,9 @@
 keystoreLocation: /path/to/.keystore
 keystorePassword: changeit
 keystoreSSLKey: tomcat
+rserveHost: localhost
+rservePort: 6311
+rserveUser: user
+rservePassword: password
+rserveTimeout: 120000
+rserveRetryInterval: 5000
