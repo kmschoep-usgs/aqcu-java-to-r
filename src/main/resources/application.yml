@@ -1,5 +1,5 @@
 server:
-  port: ${serverPort:443}
+  port: ${serverPort:8443}
   use-forward-headers: true
   ssl:
     key-store: ${keystoreLocation}
@@ -21,10 +21,6 @@ rserve:
 security:
   require-ssl: true
   basic:
-    enabled: false
-
-management:
-  security:
     enabled: false
 
 spring:
