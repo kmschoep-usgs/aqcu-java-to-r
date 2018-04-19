@@ -1,5 +1,6 @@
 server:
   port: ${serverPort:8443}
+  contextPath: ${serverContextPath:/}
   use-forward-headers: true
   ssl:
     key-store: ${keystoreLocation}
