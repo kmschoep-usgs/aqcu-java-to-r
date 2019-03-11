@@ -43,7 +43,7 @@ public class RConnectionFactory {
 				try {
 					c.close();
 				} catch(Exception e) {
-					log.error("Timeout waiting for connection: ", e.getMessage());
+					log.error("Exception while closing connection: ", e.getMessage());
 				}
 				throw new RserveException(c, "Timeout waiting for connection");
 				
