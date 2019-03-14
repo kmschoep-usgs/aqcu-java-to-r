@@ -25,6 +25,11 @@ security:
   basic:
     enabled: false
 
+logging:
+  level:
+    org:
+      springframework: ${aqcu_springFrameworkLogLevel}
+      
 spring:
   profiles:
     active: default, swagger
