@@ -190,6 +190,13 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>gov/usgs/aqcu/config/*.*</exclude>
+                        <exclude>gov/usgs/aqcu/serializer/SwaggerGsonSerializer.class</exclude>
+                        <exclude>gov/usgs/aqcu/Application.class</exclude>
+                    </excludes>
+                </configuration>
 			</plugin>
         </plugins>
     </build>

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Disabled TLS 1.0/1.1 by default.
 - add additional error logging
 - enable logging
+- exclude config/spring classes from coveralls reporting
 
 ## [0.0.2] - 2018-08-31
 
