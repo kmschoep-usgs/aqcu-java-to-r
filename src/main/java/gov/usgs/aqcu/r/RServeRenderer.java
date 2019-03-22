@@ -128,11 +128,11 @@ public class RServeRenderer {
 				} catch(Exception e) {
 					renderCommand = MessageFormat.format(R_RENDER_COMMAND_FORMAT, filename, reportType, requestingUser);
 				}
-				log.info("Starting rendering for " + reportType + " from user " + requestingUser + ".");
+				log.info("Starting rendering for " + reportType + ".");
 				long startTime = System.nanoTime();
 				renderReportExp = parseAndEval(c, renderCommand);
 				long durationMs = (System.nanoTime() - startTime)/1000000;
-				log.info("Finished rendering for " + reportType + " in " + durationMs + "ms for user " + requestingUser + ".");
+				log.info("Finished rendering for " + reportType + " in " + durationMs + " ms.");
 			} catch (PandocErrorOneException e) {
 				if(renderAttempts < REPGEN_RENDER_RETRIES) {
 					log.warn("Failed to render " + reportType + "report on "
