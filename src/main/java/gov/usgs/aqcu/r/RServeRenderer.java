@@ -132,7 +132,7 @@ public class RServeRenderer {
 				long startTime = System.nanoTime();
 				renderReportExp = parseAndEval(c, renderCommand);
 				long durationMs = (System.nanoTime() - startTime)/1000000;
-				log.info("Finished rendering for " + reportType + " in " + durationMs + "ms for user" + requestingUser + ".");
+				log.info("Finished rendering for " + reportType + " in " + durationMs + "ms for user " + requestingUser + ".");
 			} catch (PandocErrorOneException e) {
 				if(renderAttempts < REPGEN_RENDER_RETRIES) {
 					log.warn("Failed to render " + reportType + "report on "
