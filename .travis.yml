@@ -4,7 +4,7 @@
   env:
     global:
       - DOCKER_COMPOSE_VERSION=1.22.0
-      - DOCKER_IMAGE=aqcu-java-to-r-service
+      - DOCKER_IMAGE=aqcu-java-to-r
       - SPRING_BOOT_BASE_IMAGE_VERSION=latest
 
   jobs:
