@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Added
 - logging around rendering, including rendering time, report type and by user
+- Merge Docker config with repo.
 
 ### Changed
 - Disabled TLS 1.0/1.1 by default.

@@ -1,4 +1,40 @@
-language: java
+---
+  sudo: required
 
-script:
-  - mvn clean verify jacoco:report
+  env:
+    global:
+      - DOCKER_COMPOSE_VERSION=1.22.0
+      - DOCKER_IMAGE=aqcu-java-to-r
+      - SPRING_BOOT_BASE_IMAGE_VERSION=latest
+
+  jobs:
+    include:
+      - name: jacoco
+        language: java
+        script:
+          - mvn clean verify jacoco:report
+      - name: docker_build
+        language: bash
+        services: docker
+        before_install:
+          - sudo apt-get update
+          - sudo rm /usr/local/bin/docker-compose
+          - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+          - chmod +x docker-compose
+          - sudo mv docker-compose /usr/local/bin
+          - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+          - curl -L https://github.com/arminc/clair-scanner/releases/download/v8/clair-scanner_linux_amd64 > clair-scanner
+          - chmod +x clair-scanner
+          - sudo mv clair-scanner /usr/local/bin
+          - git clone https://github.com/docker/docker-bench-security.git
+        install:
+          - chmod +x docker/certificates/create_certificates.sh && docker/certificates/create_certificates.sh
+          - docker-compose build
+        script:
+          - cd docker-bench-security
+          - sudo sh docker-bench-security.sh -c container_images
+          - docker run -d --name db arminc/clair-db
+          - docker run -p 6060:6060 --link db:postgres -d --name clair arminc/clair-local-scan:v2.0.3
+          - clair-scanner -c "http://127.0.0.1:6060" --ip "$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')" $DOCKER_IMAGE:latest || true
+
+
