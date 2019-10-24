@@ -15,6 +15,7 @@
         <additionalparam>-Xdoclint:none</additionalparam>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <springfox.version>2.8.0</springfox.version>
+        <spring.boot.version>1.5.10.RELEASE</spring.boot.version>
     </properties>
 
     <distributionManagement>
@@ -29,15 +30,30 @@
             <url>${wma.artifactory.url}/aqcu-maven-snapshots</url>
         </snapshotRepository>
     </distributionManagement>
-    
+
+    <repositories>
+        <repository>
+            <id>wma-maven-centralized</id>
+            <name>Water Mission Area Snapshots and Releases</name>
+            <url>https://cida.usgs.gov/artifactory/wma-maven-centralized</url>
+        </repository>
+    </repositories>
+
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.10.RELEASE</version>
+        <groupId>gov.usgs.water</groupId>
+        <artifactId>code-quality</artifactId>
+        <version>1.1.0</version>
     </parent>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -137,11 +153,21 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.1</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -174,20 +200,19 @@
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.3.0</version>
+                <dependencies>
+                    <dependency>
+                        <!-- https://github.com/trautonen/coveralls-maven-plugin/issues/112 -->
+                        <groupId>javax.xml.bind</groupId>
+                        <artifactId>jaxb-api</artifactId>
+                        <version>2.2.3</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.9</version>
-                <executions>
-                    <execution>
-                        <id>prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                </executions>
                 <configuration>
                     <excludes>
                         <exclude>gov/usgs/aqcu/config/*.*</exclude>
