@@ -17,7 +17,7 @@
         script:
           # the -D option supresses INFO-level logs about dependency downloads. This enables the build to finish within Travis' log length limit.
           # the -P option skips dependency security checking to promote build stability
-          - mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn clean verify jacoco:report coveralls:report -P=\!dependency-security-check
+          - mvn -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn clean verify coveralls:report -P=\!dependency-security-check
       - name: docker_build
         language: bash
         services: docker
