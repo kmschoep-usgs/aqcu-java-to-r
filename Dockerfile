@@ -28,7 +28,7 @@ RUN mvn -B dependency:go-offline
 
 COPY .git /build
 COPY src /build/src
-ARG BUILD_COMMAND="mvn -B clean package"
+ARG BUILD_COMMAND="mvn -B clean verify"
 RUN ${BUILD_COMMAND}
 
 FROM usgswma/wma-spring-boot-base:8-jre-slim-0.0.4
