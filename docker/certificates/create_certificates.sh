@@ -65,4 +65,8 @@ openssl crl -inform PEM -in $DIR/intermediate1/intermediate1.crl.pem -outform DE
 echo "Creating chain certificate @ $DIR/intermediate1/end_user_certs/tomcat-wildcard.chain ..."
 cat $DIR/root/rootca.crt $DIR/intermediate1/intermediate1.crt > $DIR/intermediate1/end_user_certs/tomcat-wildcard.chain
 
+echo "Copying final certficates out to the certificates directory"
 cp $DIR/intermediate1/end_user_certs/* $DIR
+
+echo "Cleaning up temp directories"
+rm -rf $DIR/intermediate1 && rm -rf $DIR/root
