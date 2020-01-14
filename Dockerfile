@@ -26,6 +26,7 @@ RUN if getent ahosts "sslhelp.doi.net" > /dev/null 2>&1; then \
 #download all maven dependencies (this will only re-run if the pom has changed)
 RUN mvn -B dependency:go-offline
 
+COPY dependency-check-suppression.xml /build
 COPY .git /build
 COPY src /build/src
 ARG BUILD_COMMAND="mvn -B clean verify"
