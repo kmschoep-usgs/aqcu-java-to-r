@@ -28,12 +28,12 @@
         <repository>
             <id>wma-maven-centralized</id>
             <name>Water Mission Area Snapshots and Releases</name>
-            <url>https://cida.usgs.gov/artifactory/wma-maven-centralized</url>
+            <url>https://artifactory.wma.chs.usgs.gov/artifactory/wma-maven</url>
         </repository>
         <repository>
-            <id>aqcu-maven-centralized</id>
-            <name>AQCU Maven Centralized (Artifactory)</name>
-            <url>https://cida.usgs.gov/artifactory/aqcu-maven-centralized/</url>
+            <id>eros-artifactory-maven-releases</id>
+            <name>EROS Artifactory Maven Releases</name>
+            <url>https://artifactory.wma.chs.usgs.gov/artifactory/eros-artifactory-wma-maven-releases</url>
         </repository>
     </repositories>
 
